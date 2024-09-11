@@ -121,7 +121,9 @@
     return this.assert(
       chai.string.startsWith(actual, expected),
       'expected ' + this._obj + ' to start with ' + expected,
-      'expected ' + this._obj + ' not to start with ' + expected
+      'expected ' + this._obj + ' not to start with ' + expected,
+      this._obj,
+      expected
     );
   };
 
@@ -134,7 +136,9 @@
     return this.assert(
       chai.string.endsWith(actual, expected),
       'expected ' + this._obj + ' to end with ' + expected,
-      'expected ' + this._obj + ' not to end with ' + expected
+      'expected ' + this._obj + ' not to end with ' + expected,
+      this._obj,
+      expected
     );
   };
 
@@ -147,7 +151,9 @@
     return this.assert(
       chai.string.equalIgnoreCase(actual, expected),
       'expected ' + this._obj + ' to equal ' + expected + ' ignoring case',
-      'expected ' + this._obj + ' not to equal ' + expected + ' ignoring case'
+      'expected ' + this._obj + ' not to equal ' + expected + ' ignoring case',
+      this._obj,
+      expected
     );
   });
 
@@ -157,7 +163,9 @@
     return this.assert(
       chai.string.equalIgnoreSpaces(actual, expected),
       'expected ' + this._obj + ' to equal ' + expected + ' ignoring spaces',
-      'expected ' + this._obj + ' not to equal ' + expected + ' ignoring spaces'
+      'expected ' + this._obj + ' not to equal ' + expected + ' ignoring spaces',
+      this._obj,
+      expected
     );
   });
 
@@ -167,7 +175,9 @@
     return this.assert(
       chai.string.containIgnoreSpaces(actual, expected),
       'expected ' + this._obj + ' to contain ' + expected + ' ignoring spaces',
-      'expected ' + this._obj + ' not to contain ' + expected + ' ignoring spaces'
+      'expected ' + this._obj + ' not to contain ' + expected + ' ignoring spaces',
+      this._obj,
+      expected
     );
   });
 
@@ -177,7 +187,9 @@
     return this.assert(
       chai.string.containIgnoreCase(actual, expected),
       'expected ' + this._obj + ' to contain ' + expected + ' ignoring case',
-      'expected ' + this._obj + ' not to contain ' + expected + ' ignoring case'
+      'expected ' + this._obj + ' not to contain ' + expected + ' ignoring case',
+      this._obj,
+      expected
     );
   });
 
@@ -197,7 +209,9 @@
     return this.assert(
       chai.string.reverseOf(actual, expected),
       'expected ' + this._obj + ' to be the reverse of ' + expected,
-      'expected ' + this._obj + ' not to be the reverse of ' + expected
+      'expected ' + this._obj + ' not to be the reverse of ' + expected,
+      !isString(this._obj) ? this._obj : this._obj.split('').reverse().join(''),
+      expected
     );
   });
 
@@ -217,7 +231,9 @@
     return this.assert(
       chai.string.entriesCount(actual, substr, expected),
       'expected ' + this._obj + ' to have ' + substr + ' ' + expected + ' time(s)',
-      'expected ' + this._obj + ' to not have ' + substr + ' ' + expected + ' time(s)'
+      'expected ' + this._obj + ' to not have ' + substr + ' ' + expected + ' time(s)',
+      this._obj,
+      substr
     );
   });
 
@@ -227,7 +243,9 @@
     return this.assert(
       chai.string.indexOf(actual, substr, index),
       'expected ' + this._obj + ' to have ' + substr + ' on index ' + index,
-      'expected ' + this._obj + ' to not have ' + substr + ' on index ' + index
+      'expected ' + this._obj + ' to not have ' + substr + ' on index ' + index,
+      this._obj,
+      substr
     );
   });
 
